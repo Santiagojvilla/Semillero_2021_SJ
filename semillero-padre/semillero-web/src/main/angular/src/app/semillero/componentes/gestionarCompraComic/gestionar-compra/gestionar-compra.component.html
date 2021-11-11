@@ -1,0 +1,34 @@
+<div class="container">
+  <pre>{{ comicDTO | json }}</pre>
+  <form [formGroup]="gestionarCompraComicForm">
+    <h1>Gestionar Compra Comic</h1>
+    <hr>
+
+    <div class="row">
+      <div class="col-6">
+        <label for="nombreComic">Nombre:</label>
+        <input type="text" class="form-control" id="nombreComic" maxlength="50" formControlName="nombre comic seleccionado">
+      </div>
+      <div class="col-6">
+        <label for="editorialComic">Cantidad a comprar:</label>
+        <input type="text" class="form-control" id="cantiddComic" formControlName="cantidad" maxlength="2"
+               [ngClass]="{ 'is-invalid' :  submitted && f.editorial.errors }">
+        <div *ngIf="submitted && f.editorial.errors">
+          <span class="text-danger" *ngIf="f.cantidad.errors.required">Campo requerido.</span>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-6">
+        <span></span>
+      </div>
+      <div class="col-6 text-right">
+        <button type="button" class="btn btn-primary" (click)="comprarComic()">Comprar</button>
+        <button type="button" class="btn btn-primary" (click)="irAComponenteBienvida()">Cancelar</button>
+      </div>
+    </div>
+
+  </form>
+</div>
