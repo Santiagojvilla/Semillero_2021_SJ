@@ -3,13 +3,18 @@
  */
 package semillero.pruebasUnitarias;
 
-import static org.junit.jupiter.api.Assertions.assertLinesMatch;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+
+import com.hbt.semillero.dto.ComicDTO;
+import com.hbt.semillero.ejb.GestionarComicBean;
 
 import junit.framework.Assert;
 
@@ -43,20 +48,29 @@ public class EstadoComicsTest {
 
 	@Test 
 	public void validarResultadoEstadoActivo() {
-		log.info("Inicia ejecucion del metodo validarResultadoEstadoActivo()");
-		
-		
+		log.info("Inicia ejecucion del metodo validarResultadoEstadoActivo()");		
 		String resultado_noEsperado = INACTIVO;
-
 		String resultado = ACTIVO;
-		
 		Assert.assertEquals(resultado, resultado_noEsperado);
-		
-		log.info("Finaliza la ejecucion del metodo validarResultadoEstad()");
-		
+		log.info("Finaliza la ejecucion del metodo validarResultadoEstad()");	
 	}
 	
-	
+	@Test
+	public void consultarlistaComic() {
+		log.info("Inicia ejecucion del metodo consultarlistaComic()");		
+		try {
+			GestionarComicBean gestionComic = new GestionarComicBean();
+			List<ComicDTO> lista = (ArrayList<ComicDTO>) gestionComic.consultarComics();
+			for (int i = 0; i < lista.size()-1; i++) {
+				log.debug("Comic: "+lista.get(i).getNombre());
+			}
+		} catch (Exception e) {
+			log.error("ERROR REALIZANDO A CONSULTA");
+			e.printStackTrace();
+		}
+		log.info("Finaliza la ejecucion del metodo consultarlistaComic()");	
+	}
+		
 	@AfterTest
 	public void finalizaPruebasUnitarias() {
 		log.info(":::::::::::::::::::::::::::: FINALIZAN PRUEBAS UNITARIAS :::::::::::::::::::::::::::: ");

@@ -51,4 +51,3 @@ public enum TematicaEnum {
 		this.codigoMensaje = codigoMensaje;
 	}
 }
-

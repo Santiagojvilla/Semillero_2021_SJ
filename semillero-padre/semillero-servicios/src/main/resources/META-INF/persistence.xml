@@ -4,7 +4,7 @@
 			 xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
 	<persistence-unit name="semillero" transaction-type="JTA">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
-		<jta-data-source>jdbc/semillero</jta-data-source>               
+		<jta-data-source>java:/C:\Users\HP\Desktop\Heisohn\HerramientasSemilleroHBT2019\wildfly-15.0.1.Final\standalone\configuration</jta-data-source>               
         <exclude-unlisted-classes>false</exclude-unlisted-classes>
         <properties>
 			<property name="hibernate.hbm2ddl.auto" value="none" />

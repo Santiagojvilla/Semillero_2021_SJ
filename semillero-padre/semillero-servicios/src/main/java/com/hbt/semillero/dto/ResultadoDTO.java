@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * Indica el resultado de ejecución.
  * 
- * @author Johnny Soto
+ * @author 
  *
  */
 public class ResultadoDTO implements Serializable {
@@ -33,6 +33,10 @@ public class ResultadoDTO implements Serializable {
 		super();
 		this.exitoso = exitoso;
 		this.mensajeEjecucion = mensajeEjecucion;
+	}
+
+	public ResultadoDTO() {
+		
 	}
 
 	/**

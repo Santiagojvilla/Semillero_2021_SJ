@@ -63,7 +63,7 @@
 			<version>2.9.4</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.testng/testng -->
-		
+			
 		<!-- Instalación de Testng -->
 		<dependency>
             <groupId>org.testng</groupId>
@@ -85,7 +85,6 @@
    			<artifactId>hibernate-core</artifactId>
 			<version>5.2.12.Final</version>
 		</dependency>
-      
-        
+        	
 	</dependencies>
 </project>

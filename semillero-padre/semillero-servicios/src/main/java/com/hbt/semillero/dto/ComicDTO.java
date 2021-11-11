@@ -5,7 +5,7 @@ package com.hbt.semillero.dto;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.time.LocalDate;
+import java.time.LocalDate;	
 
 import com.hbt.semillero.enums.TematicaEnum;
 import com.hbt.semillero.enums.EstadoEnum;
@@ -17,14 +17,14 @@ import com.hbt.semillero.enums.EstadoEnum;
  * @author Santiago Jiménez
  * @version 1.0
  */
-public class ComicDTO implements Serializable {
+public class ComicDTO extends ResultadoDTO implements Serializable {
 
 	/**
 	 * Atributo que determina
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private String id;
+	private Long id;
 	private String nombre;
 	private String editorial;
 	private TematicaEnum tematicaEnum;
@@ -38,21 +38,46 @@ public class ComicDTO implements Serializable {
 	private Long cantidad;
 
 	/**
+	 * Constructor utilizado para la lista de comics
+	 */
+	public ComicDTO (String nombre, TematicaEnum tematica, BigDecimal precio, Boolean color, Long cantidad) {
+		this.nombre = nombre;
+		this.tematicaEnum = tematica;
+		this.precio = precio;
+		this.color = color;
+		this.cantidad = cantidad;	
+	}
+	
+	/**
+	 * Constructor utilizado para la consulta de un comic en especifico (Taller final)
+	 * @param estadoEnum
+	 * @param cantidad
+	 */
+	public ComicDTO (EstadoEnum estadoEnum, Long cantidad, String nombre) {
+		this.estadoEnum = estadoEnum;
+		this.cantidad = cantidad;
+		this.nombre = nombre;
+	}
+	
+	public ComicDTO() {
+		//Constructor vacio
+	}
+	/**
 	 * Metodo encargado de retornar el valor del atributo id
 	 * 
 	 * @return El id asociado a la clase
 	 */
-	public String getId() {
+	public Long getId() {
 		return id;
 	}
 
 	/**
 	 * Metodo encargado de modificar el valor del atributo id
 	 * 
-	 * @param id El nuevo id a modificar.
+	 * @param long1 El nuevo id a modificar.
 	 */
-	public void setId(String id) {
-		this.id = id;
+	public void setId(Long long1) {
+		this.id = long1;
 	}
 
 	/**
@@ -312,5 +337,15 @@ public class ComicDTO implements Serializable {
 		} else if (!nombre.equals(other.nombre))
 			return false;
 		return true;
+	}
+
+	public void setExitoso(boolean b) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setMensajeEjecucion(String string) {
+		// TODO Auto-generated method stub
+		
 	}
 }
